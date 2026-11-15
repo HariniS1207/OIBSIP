@@ -1,2 +1,2 @@
 # OIBSIP
-Security Analyst Internship Tasks – OOSIS INFOBYTE
+Security Analyst Internship Tasks – OASIS INFOBYTE
