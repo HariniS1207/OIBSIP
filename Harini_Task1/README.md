@@ -1,8 +1,8 @@
-\# OIBSIP – Task 1: Basic Network Scanning with Nmap
+﻿# OIBSIP â€“ Task 1: Basic Network Scanning with Nmap
 
 
 
-\## 1. Objective
+## 1. Objective
 
 
 
@@ -10,23 +10,23 @@ To perform basic network scanning using Nmap in a local Kali Linux virtual machi
 
 
 
-\## 2. Tools and Environment
+## 2. Tools and Environment
 
 
 
-\- Nmap 7.99
+- Nmap 7.99
 
-\- Kali Linux
+- Kali Linux
 
-\- Oracle VirtualBox
+- Oracle VirtualBox
 
-\- Python 3.13.12
+- Python 3.13.12
 
-\- Windows host machine
+- Windows host machine
 
 
 
-\## 3. Installation
+## 3. Installation
 
 
 
@@ -42,11 +42,11 @@ nmap --version
 
 
 
-\## 4. Scanning Process
+## 4. Scanning Process
 
 
 
-\### Basic Localhost Scan
+### Basic Localhost Scan
 
 
 
@@ -62,11 +62,11 @@ nmap 127.0.0.1
 
 
 
-\*\*Result:\*\* Host was up. All 1000 commonly scanned TCP ports were closed.
+**Result:** Host was up. All 1000 commonly scanned TCP ports were closed.
 
 
 
-\### Local VM Network Address Scan
+### Local VM Network Address Scan
 
 
 
@@ -82,11 +82,11 @@ nmap 10.0.2.15
 
 
 
-\*\*Result:\*\* Host was up. All 1000 scanned ports were filtered. No open ports were identified.
+**Result:** Host was up. All 1000 scanned ports were filtered. No open ports were identified.
 
 
 
-\### Starting a Test HTTP Service
+### Starting a Test HTTP Service
 
 
 
@@ -102,7 +102,7 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 
 
-\### Checking Listening Ports
+### Checking Listening Ports
 
 
 
@@ -118,11 +118,11 @@ ss -tuln
 
 
 
-\*\*Result:\*\* TCP port 8000 was listening on 127.0.0.1.
+**Result:** TCP port 8000 was listening on 127.0.0.1.
 
 
 
-\### Service Version Detection
+### Service Version Detection
 
 
 
@@ -138,11 +138,11 @@ nmap -sV -p 8000 127.0.0.1
 
 
 
-\*\*Result:\*\* Port 8000/tcp was open and identified as HTTP SimpleHTTPServer 0.6 (Python 3.13.12).
+**Result:** Port 8000/tcp was open and identified as HTTP SimpleHTTPServer 0.6 (Python 3.13.12).
 
 
 
-\### Operating System Detection
+### Operating System Detection
 
 
 
@@ -158,27 +158,27 @@ sudo nmap -O -p 8000 127.0.0.1
 
 
 
-\*\*Result:\*\* Linux OS guesses were displayed, but Nmap warned that the results might be unreliable because it could not find at least one open and one closed port. No exact OS match was confirmed.
+**Result:** Linux OS guesses were displayed, but Nmap warned that the results might be unreliable because it could not find at least one open and one closed port. No exact OS match was confirmed.
 
 
 
-\## 5. Security Analysis
+## 5. Security Analysis
 
 
 
-\- \*\*Closed ports:\*\* No service was accepting connections on the scanned ports.
+- **Closed ports:** No service was accepting connections on the scanned ports.
 
-\- \*\*Filtered ports:\*\* A firewall or network filtering may prevent Nmap from determining whether a port is open or closed.
+- **Filtered ports:** A firewall or network filtering may prevent Nmap from determining whether a port is open or closed.
 
-\- \*\*Port 8000:\*\* The Python HTTP development server was accessible through localhost only.
+- **Port 8000:** The Python HTTP development server was accessible through localhost only.
 
-\- \*\*Security risk:\*\* Development servers should not be exposed to untrusted networks. Files in the served directory may be accessible to clients that can connect to the server.
+- **Security risk:** Development servers should not be exposed to untrusted networks. Files in the served directory may be accessible to clients that can connect to the server.
 
-\- \*\*HTTP:\*\* HTTP does not provide transport encryption.
+- **HTTP:** HTTP does not provide transport encryption.
 
 
 
-\## 6. Screenshots
+## 6. Screenshots
 
 
 
@@ -186,23 +186,23 @@ The `screenshots` folder contains evidence of:
 
 
 
-1\. Nmap installation
+1. Nmap installation
 
-2\. Basic localhost scan
+2. Basic localhost scan
 
-3\. Local VM address scan
+3. Local VM address scan
 
-4\. HTTP server running
+4. HTTP server running
 
-5\. Listening port 8000
+5. Listening port 8000
 
-6\. Service version detection
+6. Service version detection
 
-7\. OS detection
+7. OS detection
 
 
 
-\## 7. Conclusion
+## 7. Conclusion
 
 
 
@@ -210,7 +210,7 @@ The task demonstrated basic network scanning, port identification, service versi
 
 
 
-\## 8. Ethical Considerations
+## 8. Ethical Considerations
 
 
 
