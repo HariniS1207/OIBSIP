@@ -1,1 +1,85 @@
+OIBSIP – TASK 1: BASIC NETWORK SCANNING WITH NMAP
+================================================
 
+Environment:
+- Operating System: Kali Linux (VirtualBox)
+- Nmap Version: 7.99
+- Target: Localhost (127.0.0.1)
+- VM IP Address: 10.0.2.15
+
+1. BASIC LOCALHOST SCAN
+-----------------------
+Command:
+nmap 127.0.0.1
+
+Result:
+- Host status: Up
+- Open ports: None
+- All 1000 commonly scanned TCP ports were closed.
+
+2. LOCAL VM ADDRESS SCAN
+------------------------
+Command:
+nmap 10.0.2.15
+
+Result:
+- Host status: Up
+- Open ports: None identified
+- All 1000 scanned TCP ports were filtered.
+- Scan duration: Approximately 203.98 seconds.
+
+3. TEST HTTP SERVER
+-------------------
+Command:
+python3 -m http.server 8000 --bind 127.0.0.1
+
+Result:
+- Python HTTP server started successfully.
+- Listening address: 127.0.0.1
+- Listening port: 8000
+
+4. LISTENING PORT VERIFICATION
+------------------------------
+Command:
+ss -tuln
+
+Result:
+- TCP port 8000 was in LISTEN state on 127.0.0.1.
+
+5. SERVICE VERSION DETECTION
+----------------------------
+Command:
+nmap -sV -p 8000 127.0.0.1
+
+Result:
+PORT     STATE  SERVICE  VERSION
+8000/tcp open   http     SimpleHTTPServer 0.6 (Python 3.13.12)
+
+6. OPERATING SYSTEM DETECTION
+-----------------------------
+Command:
+sudo nmap -O -p 8000 127.0.0.1
+
+Result:
+- Linux OS guesses were displayed.
+- Network distance: 0 hops.
+- Nmap reported that OS scan results may be unreliable.
+- No exact OS match was confirmed because the scan conditions were non-ideal.
+
+7. SECURITY ANALYSIS
+--------------------
+- Closed: No application was accepting connections on the scanned ports.
+- Filtered: Nmap could not determine whether the ports were open or closed because responses were filtered or unavailable.
+- Port 8000: A Python HTTP development server was detected.
+- The server was bound to 127.0.0.1, limiting access to the local machine.
+- Development servers should not be exposed to untrusted networks.
+- HTTP traffic is not encrypted.
+
+CONCLUSION
+----------
+Nmap was used to perform basic port scanning, service version detection,
+and OS fingerprinting in a local virtual environment. The scans
+demonstrated open, closed, and filtered port states.
+
+All scans were performed within the local environment for educational
+and authorised security testing purposes.
