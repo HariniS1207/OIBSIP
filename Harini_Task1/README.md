@@ -1,4 +1,4 @@
-﻿# OIBSIP â€“ Task 1: Basic Network Scanning with Nmap
+﻿# OIBSIP - Task 1: Basic Network Scanning with Nmap
 
 
 
@@ -215,4 +215,5 @@ The task demonstrated basic network scanning, port identification, service versi
 
 
 All scans were performed on the local machine or its local virtual environment. Network scanning should only be performed on systems for which permission has been granted.
+
 
